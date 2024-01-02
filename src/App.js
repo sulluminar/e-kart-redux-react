@@ -11,7 +11,6 @@ function App() {
   return (
     <div>
       <Header />
-      <h3>E Kart</h3>
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/wishlist' element={<WishList/>} />

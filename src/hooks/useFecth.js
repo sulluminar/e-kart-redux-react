@@ -5,12 +5,10 @@ const useFetch = (url)=>{
     useEffect(()=>{
         fetch(url).then(res=>{
             res.json().then(result=>{
-                console.log("result");
-                console.log(result);
                 setData(result.products)
             })
         })
-    });
+    },[]);
     return data;
 }
 export default useFetch;

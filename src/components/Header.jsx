@@ -8,7 +8,7 @@ import Badge from 'react-bootstrap/Badge';
 function Header() {
   return (
    <>
-   <Navbar expand="lg" className="bg-primary">
+   <Navbar expand="lg" className="bg-primary position-fixed top-0 w-100"style={{zIndex:"1"}} >
       <Container>
         <Navbar.Brand href="#home" style={{color:"white"}}>
             <Link to='/' style={{color:"white", textDecoration:"none"}}><i class="fa-solid fa-cart-shopping me-3"></i>E-Kart</Link></Navbar.Brand>
