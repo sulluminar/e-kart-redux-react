@@ -25,7 +25,10 @@ function WishList() {
                   <p>{item.description.slice(0,50)}...</p>
                   <p>Price: {item.price}</p>
                 </Card.Text>
-  
+                <div className='d-flex align-items-center justify-content-between'>
+                  <Button variant="outline-danger" ><i class="fa-solid fa-trash"></i></Button>
+                  <Button variant="outline-success" ><i class="fa-solid fa-cart-plus"></i></Button>
+                </div>
               </Card.Body>
             </Card>
           </Col>
