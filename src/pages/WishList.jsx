@@ -1,12 +1,15 @@
 import React from 'react'
 import { Row,Col } from 'react-bootstrap';
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import { removeFromWishlist } from '../redux/slices/wishlistSlice';
+import { addToCart } from '../redux/slices/cartSlice';
 
 function WishList() {
   const wishlistArray = useSelector((state)=>state.wishlistReducer);
+  const dispatch = useDispatch();
   console.log("====wishlist Array==");
   console.log(wishlistArray)
   return (
@@ -26,8 +29,8 @@ function WishList() {
                   <p>Price: {item.price}</p>
                 </Card.Text>
                 <div className='d-flex align-items-center justify-content-between'>
-                  <Button variant="outline-danger" ><i class="fa-solid fa-trash"></i></Button>
-                  <Button variant="outline-success" ><i class="fa-solid fa-cart-plus"></i></Button>
+                  <Button variant="outline-danger" onClick={()=>dispatch(removeFromWishlist(item.id))} ><i class="fa-solid fa-trash"></i></Button>
+                  <Button variant="outline-success" onClick={()=>dispatch(addToCart(item))} ><i class="fa-solid fa-cart-plus"></i></Button>
                 </div>
               </Card.Body>
             </Card>

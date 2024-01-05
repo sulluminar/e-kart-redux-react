@@ -1,11 +1,13 @@
 import React from 'react'
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeFromCart } from '../redux/slices/cartSlice';
+import { emptyCart, removeFromCart } from '../redux/slices/cartSlice';
+import { useNavigate } from 'react-router-dom';
 
 function Cart() {
   const cartArray = useSelector((state)=>state.cartReducer);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
   console.log("====cart Array==");
   console.log(cartArray)
   let totalPrice= 0;
@@ -15,7 +17,9 @@ function Cart() {
     }
   }
   const handleCheckout = ()=>{
+    dispatch(emptyCart())
     alert("Your order is successfully placed")
+    navigate('/')
   }
   return (
     <div style={{marginTop:"150px"}}>
